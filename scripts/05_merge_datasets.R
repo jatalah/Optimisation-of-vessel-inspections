@@ -6,6 +6,7 @@ library(janitor)
 library(readxl)
 library(naniar)
 library(ggpubr)
+rm(list=ls())
 source('scripts/theme_javier.R')
 
 # vessel type --------
@@ -108,7 +109,7 @@ d <-
   ) %>%
   droplevels()
 
-write_csv(d, 'cleaned_data/merged_data_raw.csv')
+write_csv(d, 'cleaned_data/global_dataset_raw.csv')
 
 
 tabyl(d, area)
@@ -194,7 +195,8 @@ model_dat <- read_csv('cleaned_data/global_model_dat.csv') %>%
 
 # using median data -----
 impute_para_median <- preProcess(as.data.frame(model_dat_median[,5:10]), method = "bagImpute")
-model_dat_imp_median <- predict(impute_para_median, model_dat_median) %>% write_csv('cleaned_data/global_dataset_imputed_median.csv')
+model_dat_imp_median <- predict(impute_para_median, model_dat_median) %>% 
+  write_csv('cleaned_data/global_dataset_imputed_median.csv')
 
 
 # Missing values plot-----------
