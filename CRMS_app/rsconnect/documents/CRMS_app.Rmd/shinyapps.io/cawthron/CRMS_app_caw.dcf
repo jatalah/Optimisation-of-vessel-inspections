@@ -1,0 +1,13 @@
+name: CRMS_app_caw
+title: CRMS_app_caw
+username:
+account: cawthron
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5357837
+bundleId: 5901545
+url: https://cawthron.shinyapps.io/CRMS_app_caw/
+when: 1652423130.9719
+lastSyncTime: 1652423130.9719
+asMultiple: FALSE
+asStatic: FALSE
