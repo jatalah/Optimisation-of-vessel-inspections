@@ -20,7 +20,8 @@ nzds07 <-
   filter(area != "Waterline") %>%
   droplevels() %>%
   mutate(biomass = if_else(is.na(sample_wet_weight_g) &
-                             LoF < 2, 0, sample_wet_weight_g))
+                             LoF < 2, 0, sample_wet_weight_g)) %>% 
+  write_csv('cleaned_data/nzds07_raw_clean.csv')
 
 
 # read summarized data NZDS and passenger data---------

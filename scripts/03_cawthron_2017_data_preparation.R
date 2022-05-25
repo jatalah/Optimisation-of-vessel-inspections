@@ -4,6 +4,8 @@ library(readxl)
 library(purrr)
 library(clipr)
 library(janitor)
+filter <- dplyr::filter
+rm(list=ls())
 
 # set wd() to fetch data-------
 setwd(
