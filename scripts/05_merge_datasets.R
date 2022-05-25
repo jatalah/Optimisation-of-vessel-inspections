@@ -221,6 +221,3 @@ ggarrange(p_mis, p_mis1)
 gg_miss_fct(model_dat[, -c(2:3)], dataset) +
   scale_fill_gradient(low = "white", high = "gray20", name = ) +
   labs(x = 'Dataset', y = "Predictor variable")
-
-
-
