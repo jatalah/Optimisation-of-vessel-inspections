@@ -44,7 +44,7 @@ randomForest::varImpPlot(m_rf$finalModel) %>%
 as_tibble(rownames = "Variable") %>%
 mutate(Variable = str_replace_all(Variable, "vessel_type", ""),
 Variable = str_to_sentence(str_replace_all(Variable, "_", " ")),
-Variable = fct_recode(Variable, DDSS = "Ddss"))
+Variable = fct_recode(Variable, DDSS = "Ddss", RoRo = "Roro"))
 
 # plot variable importance--------
 imp_plot <-
@@ -58,7 +58,8 @@ yend = MeanDecreaseAccuracy
 )) +
 ylab("Variable importance") +
 xlab("Predictor") +
-coord_flip()
+coord_flip() +
+  theme_javier()
 
 imp_plot
 

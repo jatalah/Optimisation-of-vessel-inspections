@@ -200,13 +200,17 @@ model_dat_imp_median <- predict(impute_para_median, model_dat_median) %>%
 
 
 # Missing values plot-----------
+model_dat <- 
+  model_dat %>% rename_with(~str_to_sentence(str_replace_all(., "_", " "))) %>% 
+  rename_with(toupper, .cols = c('Crms', 'Ddss'))
+
 missing_plot(model_dat[, -1])
 p_mis <- 
   vis_miss(model_dat[, -c(1:2)]) +
   theme(axis.text.x = element_text(angle = 70))
 
 p_mis1 <- 
-  gg_miss_var(model_dat[, -c(2:3)], facet = dataset, show_pct = TRUE ) +
+  gg_miss_var(model_dat[, -c(2:3)], facet = Dataset, show_pct = TRUE ) +
   theme_javier()
 
 p_mis1
@@ -218,6 +222,8 @@ ggsave(ggarrange(p_mis, p_mis1, labels = 'auto', nrow = 2),
 
 ggarrange(p_mis, p_mis1)
   
-gg_miss_fct(model_dat[, -c(2:3)], dataset) +
+
+
+gg_miss_fct(model_dat[, -c(2:3)], Dataset) +
   scale_fill_gradient(low = "white", high = "gray20", name = ) +
   labs(x = 'Dataset', y = "Predictor variable")
